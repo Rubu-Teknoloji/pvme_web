@@ -1,0 +1,9 @@
+@function size($value) {
+  @return calc(var(--1) * $value);
+}
+@function max-width() {
+  @return '(max-width: 767.98px)';
+}
+@function min-width() {
+  @return '(min-width: 767.98px)';
+}

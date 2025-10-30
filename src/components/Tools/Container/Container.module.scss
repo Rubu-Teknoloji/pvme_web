@@ -1,0 +1,19 @@
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: calc(var(--1) * 1228);
+    margin-inline: auto;
+    &.large {
+      max-width: calc(var(--1) * 1440);
+    }
+  }
+}
+
+@media only screen and (max-width: 767.98px) {
+  .container {
+    max-width: 90%;
+    margin-inline: auto;
+    &.mobileContainer{
+      max-width: 100% !important;
+    }
+  }
+}

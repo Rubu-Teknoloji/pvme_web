@@ -1,0 +1,27 @@
+[
+  {
+    "icon":"/images/social/webIcon.png",
+    "name": "Web",
+    "slug": "https://www.kayseriseker.com.tr/"
+  },
+  {
+    "icon":"/images/social/youtubeIcon.png",
+    "name": "Youtube",
+    "slug": "https://www.youtube.com/kayseriseker"
+  },
+    {
+    "icon":"/images/social/facebookIcon.png",
+    "name": "Facebook",
+    "slug": "https://www.facebook.com/kayserisekerkurumsal/"
+  },
+    {
+    "icon":"/images/social/instagramIcon.png",
+    "name": "instagram",
+    "slug": "https://www.instagram.com/kayseri_seker/"
+  },
+  {
+    "icon":"/images/social/whatsappIcon.png",
+    "name": "Whatsaap",
+    "slug": "https://wa.me/905385552255"
+  }
+]

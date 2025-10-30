@@ -1,0 +1,84 @@
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: size(16);
+    padding-inline: size(32);
+    border-radius: size(12);
+    gap: size(10);
+    background-color: var(--white);
+    color: var(--white);
+    font-style: normal;
+    font-weight: 600;
+    font-size: size(16);
+    line-height: size(19.6);
+    letter-spacing: 1%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    &.grayButton {
+      background-color:var(--grayButton);
+      color: var(--white);
+      &::after {
+        background-color: var(--dark);
+      }
+    }
+    &.pinkButton {
+      background-color: var(--pinkButton);
+      color: var(--white);
+      &::after {
+        background-color: var(--dark);
+      }
+    }
+    &.pinkNeonButton {
+      background-color: var(--pinkNeonButton);
+      color: var(--white);
+      &::after {
+        background-color: var(--dark);
+      }
+    }
+    &.greenButton {
+      background-color: var(--green1);
+      color: var(--white);
+      &::after {
+        background-color: var(--dark);
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      background-color: var(--dark);
+      transition: all 300ms ease;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      opacity: 0;
+    }
+    &:hover {
+      &::after {
+        width: 80%;
+        height: 300%;
+        transform: translate(-50%, -50%) rotate(20deg);
+        z-index: -1;
+        opacity: 0.2;
+      }
+    }
+
+    .icon {
+      position: relative;
+      display: flex;
+      width: size(20);
+      height: size(20);
+    }
+  }
+  .btn-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: size(10);
+  }
