@@ -65,6 +65,6 @@ export const getDeviceInfo = () => {
     deviceType,
     os,
     browser,
-    userAgent: navigator.userAgent
+    userAgent: navigator.userAgent,
   };
 };

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./WelcomePage.module.scss";
 import { FaPlay } from "react-icons/fa";
+import CircularProgress from "../../Tools/CircularProgress/CircularProgress";
 
 const WelcomePage = ({
   userName,
@@ -14,8 +15,23 @@ const WelcomePage = ({
   isShowLogo,
   contentStyle,
   subjectStyle,
-  onButtonClick
+  onButtonClick,
+  isButtonVisible,
+  pageDuration,
 }) => {
+  useEffect(() => {
+    let timer;
+    if (!isButtonVisible) {
+      const duration = pageDuration > 0 ? pageDuration : 5;
+      timer = setTimeout(() => {
+        onButtonClick();
+      }, duration * 1000);
+    }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [isButtonVisible, pageDuration, onButtonClick]);
+
   return (
     <div
       className={styles.welcomePage}
@@ -33,16 +49,23 @@ const WelcomePage = ({
         </h2>
         <div className={styles.textContent}>
           <p style={contentStyle}>{content}</p>
-          <div className={styles.buttonVideo}>
-            <button
-              style={buttonStyle}
-              onClick={onButtonClick}
-            >
-              {buttonText}
-              <FaPlay size={15} />
-            </button>
-          </div>
+          {isButtonVisible && (
+            <div className={styles.buttonVideo}>
+              <button style={buttonStyle} onClick={onButtonClick}>
+                {buttonText}
+              </button>
+            </div>
+          )}
         </div>
+        {!isButtonVisible && (
+          <div className={styles.progress}>
+            <CircularProgress
+              duration={pageDuration}
+              size={60}
+              color="#3bd363"
+            />
+          </div>
+        )}
       </div>
     </div>
   );

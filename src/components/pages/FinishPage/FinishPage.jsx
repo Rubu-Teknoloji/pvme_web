@@ -6,7 +6,7 @@ const FinishPage = ({
   webBackgoundImage,
   contentStyle,
   isShowLogo,
-  logoUrl
+  logoUrl,
 }) => {
   return (
     <div

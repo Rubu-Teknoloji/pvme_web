@@ -1,6 +1,6 @@
 @use "@/styles/base/func" as func;
 .questionsPage {
-  height: 100vh;
+  min-height: 100vh;
   padding-inline: func.size(32);
   background-position: center;
   background-repeat: no-repeat;
@@ -20,6 +20,8 @@
   }
   .content {
     width: 100%;
+           width: 100%;
+        text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,10 +51,10 @@
         border: none;
         border-radius: func.size(12);
         cursor: pointer;
-        &:hover {
-          background-color: #007bff !important;
-          color: #000;
-        }
+        // &:hover {
+        //   background-color: #007bff !important;
+        //   color: #000;
+        // }
       }
     }
     p {

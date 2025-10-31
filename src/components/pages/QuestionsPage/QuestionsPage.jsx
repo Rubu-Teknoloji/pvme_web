@@ -8,6 +8,9 @@ const QuestionsPage = ({
   questionColor,
   questionAnswers,
   questionAnswerStyle,
+  buttonStyle,
+  buttonText,
+  onButtonClick,
 }) => {
   console.log("soru", questionAnswers);
   return (
@@ -21,14 +24,7 @@ const QuestionsPage = ({
         </div>
       ) : null}
       <div className={styles.content}>
-        <div
-          className={styles.questionContent}
-          style={{ borderBottom: `1px solid ${questionColor}80` }}
-        >
-          <div
-            className={styles.dot}
-            style={{ backgroundColor: questionColor }}
-          ></div>
+        <div className={styles.questionContent}>
           <p style={questionStyle}>{question}</p>
         </div>
         <ul className={styles.questionAnswers}>

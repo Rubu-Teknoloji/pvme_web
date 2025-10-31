@@ -1,6 +1,6 @@
 @use '@/styles/base/func' as func;
 .welcomePage{
-    height: 100vh;
+    min-height: 100vh;
     padding-inline: func.size(32);
     background-position: center;
     background-repeat: no-repeat;
@@ -19,6 +19,8 @@
             }
         }
     .content{
+        width: 100%;
+        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -71,4 +73,9 @@
                 }
             }
         }
+                    .progress{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
     }

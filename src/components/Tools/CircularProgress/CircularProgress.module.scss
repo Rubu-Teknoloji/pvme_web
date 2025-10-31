@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.progressRing {
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.backgroundCircle {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 2;
+}
+
+.progressCircle {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.05s linear;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.1));
+}
+
+.timeText {
+  font-size: 4px;
+  fill: green;
+  text-anchor: middle;
+  transform: rotate(90deg);
+  transform-origin: center;
+  font-family: "Inter", sans-serif;
+}
