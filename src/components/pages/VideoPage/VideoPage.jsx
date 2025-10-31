@@ -12,11 +12,10 @@ const VideoPage = ({
     step,
     setStep,
     pageType,
-    data 
+    data
 }) => {
   const isFullScreen = videoOrientation;
   const dispatch = useDispatch();
-  const [videoEndTime, setVideoEndTime] = useState(null);
   const [videoStartTime, setVideoStartTime] = useState(null);
   const [preloadedVideo, setPreloadedVideo] = useState(null);
   const videoRef = useRef(null);
@@ -128,7 +127,7 @@ const VideoPage = ({
       window.removeEventListener("pagehide", handleUnload);
     };
   }, [data, videoStartTime, step]);
-
+ 
   return (
     <div
       className={styles.videoPage}

@@ -1,7 +1,9 @@
 @use '@/styles/base/func' as func;
 .homePage{
     max-width: func.size(767.98);
-    min-height: 100vh;
+    // min-height: 100vh;
+      min-height: calc(var(--vh, 1vh) * 100);
+
     margin: auto;
     color: var(--text);
         background-size: cover;

@@ -18,15 +18,14 @@ const ImagePage = ({
   useEffect(() => {
     let timer;
 
-    // 🔹 Eğer buton görünmüyorsa (false) otomatik geçiş aktif olsun
+
     if (!isButtonVisible) {
-      const duration = pageDuration > 0 ? pageDuration : 5; // default 5 saniye
+      const duration = pageDuration > 0 ? pageDuration : 5; 
       timer = setTimeout(() => {
-        onButtonClick(); // step artıran fonksiyon
-      }, duration * 10000); // 100000 değil, 1000 olmalı (saniye → ms)
+        onButtonClick(); 
+      }, duration * 1000); 
     }
 
-    // 🔹 Component unmount olduğunda timer temizlensin
     return () => {
       if (timer) clearTimeout(timer);
     };
