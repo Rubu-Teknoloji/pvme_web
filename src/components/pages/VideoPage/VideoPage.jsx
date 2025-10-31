@@ -48,7 +48,7 @@ const VideoPage = ({
   endDate: formatTurkishDate(now),
     };
 
-    dispatch(sendVideoTracking(videoData));
+    dispatch(sendVideoTracking({ videoData: videoData }));
     setStep((prev) => prev + 1);
   };
 

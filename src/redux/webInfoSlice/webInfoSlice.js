@@ -17,9 +17,7 @@ export const sendVideoTracking = createAsyncThunk(
   "webInfo/sendVideoTracking",
   async ({videoData}, { rejectWithValue }) => {
     try {
-      const response = await axios.post("https://admin.pvme.net/api/pvme/tracking", {
-        videoData
-      });
+      const response = await axios.post("https://admin.pvme.net/api/pvme/tracking",{videoData});
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || "Tracking bilgisi gönderme hatası");

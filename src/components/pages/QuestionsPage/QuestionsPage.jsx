@@ -27,7 +27,7 @@ const handleAnswerClick = (id) => {
         answerId:selectedAnswerId,
         date: now
     };
-    dispatch(sendQuestion(questionData));
+    dispatch(sendQuestion({ questionData: questionData }));
     setStep((prev) => prev + 1);
 };
   return (
