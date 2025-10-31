@@ -21,7 +21,7 @@ export default function Home() {
   const [deviceInfo, setDeviceInfo] = useState(null);
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.webInfo);
-  const [step, setStep] = useState(5);
+  const [step, setStep] = useState(1);
   const [videoStartTime, setVideoStartTime] = useState(null);
   const videoRef = useRef(null);
   const [videoEndTime, setVideoEndTime] = useState(null);
