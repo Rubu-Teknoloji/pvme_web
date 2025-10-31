@@ -1,4 +1,7 @@
+import { useState } from "react";
 import styles from "./QuestionsPage.module.scss";
+import { sendQuestion } from "../../../redux/webInfoSlice/webInfoSlice";
+import { useDispatch } from "react-redux";
 const QuestionsPage = ({
   question,
   questionStyle,
@@ -8,11 +11,25 @@ const QuestionsPage = ({
   questionColor,
   questionAnswers,
   questionAnswerStyle,
-  buttonStyle,
-  buttonText,
-  onButtonClick,
+  setStep,
+  pageId,
+  trackingCode
 }) => {
-  console.log("soru", questionAnswers);
+  const [selectedAnswerId, setSelectedAnswerId] = useState(null);
+    const dispatch = useDispatch();
+
+const handleAnswerClick = (id) => {
+  const now = new Date();
+  setSelectedAnswerId(id); 
+     const payload = {
+        trackingCode:trackingCode,
+        pageId:pageId ,
+        answerId:selectedAnswerId,
+        date: now
+    };
+    dispatch(sendQuestion(payload));
+    setStep((prev) => prev + 1);
+};
   return (
     <div
       className={styles.questionsPage}
@@ -27,13 +44,6 @@ const QuestionsPage = ({
         <div className={styles.questionContent}>
           <p style={questionStyle}>{question}</p>
         </div>
-        {/* <ul className={styles.questionAnswers}>
-          {questionAnswers?.map((answers, answersIndex) => (
-            <li key={answersIndex} style={questionAnswerStyle}>
-              {answers.text}
-            </li>
-          ))}
-        </ul> */}
         <ul className={styles.questionAnswers}>
   {questionAnswers?.map((answers, index) => {
     const animationClass = index % 2 === 0 ? styles.fadeLeft : styles.fadeRight;
@@ -42,6 +52,7 @@ const QuestionsPage = ({
     return (
       <li
         key={index}
+        onClick={() => handleAnswerClick(answers.id)}
         className={animationClass}
         style={{ ...questionAnswerStyle, animationDelay }}
       >
