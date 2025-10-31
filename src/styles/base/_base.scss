@@ -1,46 +1,4 @@
-// *,
-// *::after,
-// *::before {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
 
-// a {
-//   color: inherit;
-//   text-decoration: none;
-// }
-// li {
-//   list-style: none;
-// }
-// .h2 {
-//   font-size: calc(var(--1) * 180);
-// }
-// .container {
-//   max-width: calc(var(--1) * 1440);
-//   margin-inline: auto;
-// }
-// body {
-//   // background-color: var(--black);
-//   // color: var(--white);
-//   overflow-x: hidden;
-//   background-color:var(--white);
-// }
-// .darkMode{
-//     background-color: var(--black);
-//   color: var(--white);
-// }
-
-// @media only screen and (min-width: 767.98px) {
-//   .d-sm {
-//     display: none !important;
-//   }
-// }
-// @media only screen and (max-width: 767.98px) {
-//   .d-md {
-//     display: none !important;
-//   }
-// }
 * {
   font-family: "Ubuntu", sans-serif;
   margin: 0;

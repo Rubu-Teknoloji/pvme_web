@@ -21,13 +21,13 @@ const QuestionsPage = ({
 const handleAnswerClick = (id) => {
   const now = new Date();
   setSelectedAnswerId(id); 
-     const payload = {
+     const questionData = {
         trackingCode:trackingCode,
-        pageId:pageId ,
+        pageId:pageId,
         answerId:selectedAnswerId,
         date: now
     };
-    dispatch(sendQuestion(payload));
+    dispatch(sendQuestion(questionData));
     setStep((prev) => prev + 1);
 };
   return (
