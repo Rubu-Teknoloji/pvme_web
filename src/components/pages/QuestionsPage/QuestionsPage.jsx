@@ -24,12 +24,13 @@ const handleAnswerClick = (id) => {
      const questionData = {
         trackingCode:trackingCode,
         pageId:pageId,
-        answerId:selectedAnswerId,
+        answerId:id,
         date: now
     };
     dispatch(sendQuestion({ questionData: questionData }));
     setStep((prev) => prev + 1);
 };
+console.log("id",selectedAnswerId)
   return (
     <div
       className={styles.questionsPage}

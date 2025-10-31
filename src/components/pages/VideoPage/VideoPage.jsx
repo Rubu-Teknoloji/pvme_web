@@ -41,14 +41,14 @@ const VideoPage = ({
   const handleVideoEnd = () => {
     const now = new Date(); // EndDate
 
-    const videoData = {
+    const trackingData = {
       trackingCode: trackingCode,
       pageId: pageId,
    startDate: formatTurkishDate(videoStartTime),
   endDate: formatTurkishDate(now),
     };
 
-    dispatch(sendVideoTracking({ videoData: videoData }));
+    dispatch(sendVideoTracking({ trackingData: trackingData }));
     setStep((prev) => prev + 1);
   };
 
@@ -101,7 +101,7 @@ const VideoPage = ({
         return;
       }
       const now = new Date();
-      const videoData = {
+      const trackingData  = {
                  trackingCode:trackingCode,
    pageId:pageId,
    startDate:videoStartTime,
@@ -110,11 +110,11 @@ const VideoPage = ({
 
       navigator.sendBeacon(
         "https://admin.pvme.net/api/pvme/tracking",
-        new Blob([JSON.stringify(videoData)], { type: "application/json" })
+        new Blob([JSON.stringify(trackingData )], { type: "application/json" })
       );
       fetch("https://admin.pvme.net/api/pvme/tracking", {
         method: "POST",
-        body: JSON.stringify(videoData),
+        body: JSON.stringify(trackingData ),
         headers: { "Content-Type": "application/json" },
         keepalive: true,
       });
