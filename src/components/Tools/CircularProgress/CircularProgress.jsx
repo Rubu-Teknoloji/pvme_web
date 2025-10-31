@@ -4,7 +4,7 @@ import styles from "./CircularProgress.module.scss";
 const CircularProgress = ({
   duration = 5000,
   size = 100,
-  color = "#4caf50",
+  color = "#000",
 }) => {
   const [progress, setProgress] = useState(0);
 

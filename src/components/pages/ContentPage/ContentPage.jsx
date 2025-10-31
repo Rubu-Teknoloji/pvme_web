@@ -44,7 +44,7 @@ const ContentPage = ({
           <p style={contentStyle}>{content}</p>
           {isButtonVisible && (
             <div className={styles.button}>
-              <button style={buttonStyle} onClick={onButtonClick}>
+              <button style={buttonStyle} onClick={onButtonClick} className={styles.fadeDown}>
                 {buttonText}
               </button>
             </div>
@@ -53,9 +53,9 @@ const ContentPage = ({
         {!isButtonVisible && (
           <div className={styles.progress}>
             <CircularProgress
-              duration={pageDuration}
+              duration={pageDuration * 1000}
               size={60}
-              color="#3bd363"
+              color="#fff"
             />
           </div>
         )}

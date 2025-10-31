@@ -51,7 +51,7 @@ const WelcomePage = ({
           <p style={contentStyle}>{content}</p>
           {isButtonVisible && (
             <div className={styles.buttonVideo}>
-              <button style={buttonStyle} onClick={onButtonClick}>
+              <button style={buttonStyle} onClick={onButtonClick} className={styles.fadeDown}>
                 {buttonText}
               </button>
             </div>
@@ -60,9 +60,9 @@ const WelcomePage = ({
         {!isButtonVisible && (
           <div className={styles.progress}>
             <CircularProgress
-              duration={pageDuration}
+              duration={pageDuration * 1000}
               size={60}
-              color="#3bd363"
+              color="#fff"
             />
           </div>
         )}

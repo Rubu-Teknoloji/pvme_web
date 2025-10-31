@@ -3,6 +3,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
+    border: 2px solid #000; /* yeşil çerçeve */
+  border-radius: 50%; /* dairesel görünüm */
+  padding: 2px; /* iç boşluk */
+  box-sizing: border-box;
 }
 
 .progressRing {
@@ -12,8 +16,8 @@
 
 .backgroundCircle {
   fill: none;
-  stroke: #eee;
-  stroke-width: 2;
+  stroke: #000;
+  stroke-width: 1;
 }
 
 .progressCircle {
@@ -26,7 +30,7 @@
 
 .timeText {
   font-size: 4px;
-  fill: green;
+  fill: #fff;
   text-anchor: middle;
   transform: rotate(90deg);
   transform-origin: center;

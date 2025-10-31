@@ -1,5 +1,6 @@
 import Home from "./pages/Home/Home"
 import styles from './App.module.scss';
+import 'aos/dist/aos.css';
 
 function App() {
 

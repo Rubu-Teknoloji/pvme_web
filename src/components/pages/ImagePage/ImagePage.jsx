@@ -23,7 +23,7 @@ const ImagePage = ({
       const duration = pageDuration > 0 ? pageDuration : 5; // default 5 saniye
       timer = setTimeout(() => {
         onButtonClick(); // step artıran fonksiyon
-      }, duration * 1000); // 100000 değil, 1000 olmalı (saniye → ms)
+      }, duration * 10000); // 100000 değil, 1000 olmalı (saniye → ms)
     }
 
     // 🔹 Component unmount olduğunda timer temizlensin
@@ -48,16 +48,16 @@ const ImagePage = ({
         {!isButtonVisible && (
           <div className={styles.progress}>
             <CircularProgress
-              duration={pageDuration}
+              duration={pageDuration * 1000}
               size={60}
-              color="#3bd363"
+              color="#fff"
             />
           </div>
         )}
       </div>
       {isButtonVisible && (
         <div className={styles.button}>
-          <button style={buttonStyle} onClick={onButtonClick}>
+          <button style={buttonStyle} onClick={onButtonClick} className={styles.fadeDown}>
             {buttonText}
           </button>
         </div>

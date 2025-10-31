@@ -3,7 +3,6 @@ import styles from "./Home.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import WelcomePage from "../../components/pages/WelcomePage/WelcomePage";
-import { FaPlay } from "react-icons/fa";
 import VideoPage from "../../components/pages/VideoPage/VideoPage";
 import FinishPage from "../../components/pages/FinishPage/FinishPage";
 import {
@@ -21,7 +20,7 @@ export default function Home() {
   const [deviceInfo, setDeviceInfo] = useState(null);
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.webInfo);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
   const [videoStartTime, setVideoStartTime] = useState(null);
   const videoRef = useRef(null);
   const [videoEndTime, setVideoEndTime] = useState(null);
