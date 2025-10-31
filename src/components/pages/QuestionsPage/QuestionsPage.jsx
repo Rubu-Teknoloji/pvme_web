@@ -17,7 +17,17 @@ const QuestionsPage = ({
 }) => {
   const [selectedAnswerId, setSelectedAnswerId] = useState(null);
     const dispatch = useDispatch();
-
+ const formatTurkishDate = (date) => {
+  if (!date) return null;
+  return date.toLocaleString("tr-TR", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+};
 const handleAnswerClick = (id) => {
   const now = new Date();
   setSelectedAnswerId(id); 
@@ -25,7 +35,7 @@ const handleAnswerClick = (id) => {
         trackingCode:trackingCode,
         pageId:pageId,
         answerId:id,
-        date: now
+        date:formatTurkishDate(now)
     };
     dispatch(sendQuestion({ questionData: questionData }));
     setStep((prev) => prev + 1);
