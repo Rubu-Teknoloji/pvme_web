@@ -27,13 +27,30 @@ const QuestionsPage = ({
         <div className={styles.questionContent}>
           <p style={questionStyle}>{question}</p>
         </div>
-        <ul className={styles.questionAnswers}>
+        {/* <ul className={styles.questionAnswers}>
           {questionAnswers?.map((answers, answersIndex) => (
             <li key={answersIndex} style={questionAnswerStyle}>
               {answers.text}
             </li>
           ))}
-        </ul>
+        </ul> */}
+        <ul className={styles.questionAnswers}>
+  {questionAnswers?.map((answers, index) => {
+    const animationClass = index % 2 === 0 ? styles.fadeLeft : styles.fadeRight;
+    const animationDelay = `${index * 0.2}s`;
+
+    return (
+      <li
+        key={index}
+        className={animationClass}
+        style={{ ...questionAnswerStyle, animationDelay }}
+      >
+        {answers.text}
+      </li>
+    );
+  })}
+</ul>
+
       </div>
     </div>
   );
