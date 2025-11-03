@@ -19,6 +19,15 @@ const VideoPage = ({
   const [videoStartTime, setVideoStartTime] = useState(null);
   const [preloadedVideo, setPreloadedVideo] = useState(null);
   const videoRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(false); // 🔹 Yeni state
+
+
+    // 🔸 iPhone tespiti
+  useEffect(() => {
+    const isIOS =
+      /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    setIsMuted(isIOS); // iPhone ise muted = true
+  }, []);
 
   const formatTurkishDate = (date) => {
   if (!date) return null;
@@ -148,7 +157,7 @@ const VideoPage = ({
           onEnded={handleVideoEnd}
           controls
           preload="auto"
-          muted
+          muted={isMuted}
           autoPlay
           playsInline
           webkit-playsinline
