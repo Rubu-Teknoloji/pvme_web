@@ -10,6 +10,7 @@ import LoadingSpinner from "../../components/Tools/LoadingSpinner/LoadingSpinner
 import ImagePage from "../../components/pages/ImagePage/ImagePage";
 import ContentPage from "../../components/pages/ContentPage/ContentPage";
 import QuestionsPage from "../../components/pages/QuestionsPage/QuestionsPage";
+import { MdBorderColor } from "react-icons/md";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -46,6 +47,36 @@ export default function Home() {
   const handleNextStep = () => {
     setStep((prev) => prev + 1);
   };
+
+  // Renk hex olarak geliyorsa örnek: "#FF0000"
+const hexToRgba = (hex, opacity) => {
+  if (!hex) return `rgba(0,0,0,${opacity})`;
+
+  // Eğer rgb(...) formatındaysa, zaten kullanılabilir
+  if (hex.startsWith("rgb")) {
+    // rgb(22,62,105) → rgba(22,62,105,0.2)
+    return hex.replace("rgb", "rgba").replace(")", `,${opacity})`);
+  }
+
+  let r = 0, g = 0, b = 0;
+
+  // 3 karakterli hex
+  if (hex.length === 4) {
+    r = parseInt(hex[1] + hex[1], 16);
+    g = parseInt(hex[2] + hex[2], 16);
+    b = parseInt(hex[3] + hex[3], 16);
+  }
+  // 6 karakterli hex
+  else if (hex.length === 7) {
+    r = parseInt(hex[1] + hex[2], 16);
+    g = parseInt(hex[3] + hex[4], 16);
+    b = parseInt(hex[5] + hex[6], 16);
+  }
+
+  return `rgba(${r},${g},${b},${opacity})`;
+};
+
+
   if (loading)
     return (
       <div
@@ -140,7 +171,8 @@ export default function Home() {
                             color: mData.buttonTextColor,
                             fontSize: mData.buttonTextFontSize,
                             fontWeight: mData.buttonTextFontWeight,
-                            backgroundColor: mData.buttonBgColor,
+                            borderColor: mData.buttonBgColor,
+                            backgroundColor: hexToRgba(mData.buttonBgColor, 0.2),
                           }}
                           imageUrl={mData.imageUrl}
                           onButtonClick={handleNextStep}

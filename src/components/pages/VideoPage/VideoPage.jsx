@@ -20,6 +20,7 @@ const VideoPage = ({
   const [preloadedVideo, setPreloadedVideo] = useState(null);
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(false); // 🔹 Yeni state
+  const [showSoundButton, setShowSoundButton] = useState(false);
 
 
     // 🔸 iPhone tespiti
@@ -27,6 +28,7 @@ const VideoPage = ({
     const isIOS =
       /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     setIsMuted(isIOS); // iPhone ise muted = true
+    setShowSoundButton(isIOS);
   }, []);
 
   const formatTurkishDate = (date) => {
@@ -96,6 +98,7 @@ const VideoPage = ({
         if (videoRef.current) {
           videoRef.current.muted = false;
           videoRef.current.play();
+          
         }
       };
   
@@ -137,6 +140,14 @@ const VideoPage = ({
     };
   }, [data, videoStartTime, step]);
  
+    // Ses açma butonuna tıklayınca
+  const handleUnmute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = false;
+      videoRef.current.play();
+      setShowSoundButton(false); // Butonu gizle
+    }
+  };
   return (
     <div
       className={styles.videoPage}
@@ -160,13 +171,34 @@ const VideoPage = ({
           muted={isMuted}
           autoPlay
           playsInline
-          webkit-playsinline
+          webkit-playsinline="true"
           style={
             isFullScreen
               ? { width: "100vw", height: "100vh", objectFit: "contain",backgroundColor: "black", }
               : {}
           }
         ></video>
+        {/* Ses açma butonu */}
+        {showSoundButton && (
+          <button
+            onClick={handleUnmute}
+            style={{
+              position: "absolute",
+              bottom: "100px",
+              right: "10px",
+              background: "rgba(0,0,0,0.5)",
+              color: "white",
+              border: "none",
+              borderRadius: "50%",
+              width: "50px",
+              height: "50px",
+              fontSize: "24px",
+              cursor: "pointer",
+            }}
+          >
+            {isMuted ? "🔇" : "🔊"}
+          </button>
+        )}
       </div>
     </div>
   );

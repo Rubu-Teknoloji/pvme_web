@@ -20,8 +20,10 @@
   animation: spinY 1s ease-out forwards;
   perspective: 1000px;
             img{
-                width: func.size(117);
-                height: func.size(117);
+                width: func.size(150);
+                height: func.size(150);
+                    object-fit: contain;
+
             }
         }
     .content{

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ImagePage.module.scss";
 import CircularProgress from "../../Tools/CircularProgress/CircularProgress";
+import { GrFormNextLink, GrLinkNext } from "react-icons/gr";
 
 const ImagePage = ({
   webBackgoundImage,
@@ -54,11 +55,18 @@ const ImagePage = ({
           </div>
         )}
       </div>
-      {isButtonVisible && (
+      {/* {isButtonVisible && (
         <div className={styles.button}>
           <button style={buttonStyle} onClick={onButtonClick} className={styles.fadeDown}>
             {buttonText}
           </button>
+        </div>
+      )} */}
+            {isButtonVisible && (
+        <div className={`${styles.Applebutton} ${styles.fadeDown}`} style={buttonStyle} onClick={onButtonClick}>
+          <div className={`${styles.nextBox}`} >
+            <GrLinkNext />
+          </div>
         </div>
       )}
     </div>

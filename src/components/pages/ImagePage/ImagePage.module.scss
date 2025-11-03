@@ -12,6 +12,7 @@ overflow: hidden;
   justify-content: space-between;
   // justify-content: center;
   // align-items: center;
+  position: relative;
   .logo {
     padding-block: func.size(45);
     display: flex;
@@ -22,8 +23,10 @@ overflow: hidden;
     animation: spinY 1s ease-out forwards;
     perspective: 1000px;
     img {
-      width: func.size(117);
-      height: func.size(117);
+      width: func.size(150);
+      height: func.size(150);
+                          object-fit: contain;
+
     }
   }
 }
@@ -85,6 +88,40 @@ overflow: hidden;
     // background-image: url(../../../public/buttonBg.png);
   }
 }
+.Applebutton {
+  width: 100%;
+  width: func.size(80);
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid;
+  // background-color: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(5px); 
+  -webkit-backdrop-filter: blur(5px); 
+  border-radius: func.size(10); 
+  .nextBox {
+    width: func.size(120);
+    padding-block: func.size(14);
+    font-size: func.size(20);
+    // font-weight: 500;
+    line-height: 150%;
+    letter-spacing: func.size(-1%);
+    outline: none;
+    border: none;
+    // border-radius: func.size(12);
+    // color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: func.size(12);
+    // background-image: url(../../../public/buttonBg.png);
+  }
+}
+
 .progress {
   position: absolute;
   top: 10px;
