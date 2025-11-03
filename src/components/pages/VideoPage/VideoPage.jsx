@@ -143,15 +143,18 @@ const VideoPage = ({
       <div className={isFullScreen ? styles.videoFullScreen : styles.video}>
         <video
           src={videoLink}
+            ref={videoRef}
           onPlay={handleVideoStart}
           onEnded={handleVideoEnd}
           controls
           preload="auto"
+          muted
           autoPlay
           playsInline
+          webkit-playsinline
           style={
             isFullScreen
-              ? { width: "100vw", height: "100vh", objectFit: "cover" }
+              ? { width: "100vw", height: "100vh", objectFit: "contain",backgroundColor: "black", }
               : {}
           }
         ></video>
