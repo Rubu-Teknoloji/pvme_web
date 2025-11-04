@@ -248,7 +248,8 @@ const hexToRgba = (hex, opacity) => {
                           }}
                           questionAnswers={mData.questionAnswers}
                           questionAnswerStyle={{
-                            backgroundColor: mData.questionAnswerColor,
+                            color:mData.questionAnswerColor,
+                            backgroundColor: mData.questionAnswerBgColor,
                             fontSize: mData.questionAnswerFontSize,
                             fontWeight: mData.questionAnswerFontWeight,
                           }}
