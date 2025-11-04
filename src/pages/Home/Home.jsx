@@ -184,6 +184,7 @@ const hexToRgba = (hex, opacity) => {
                         <FinishPage
                           title={mData.title}
                           webBackgoundImage={mData.bgImageUrl}
+                          trackingCode={trackingCode}
                           logoUrl={mData.logoUrl}
                           content={mData.content}
                           isShowLogo={mData.isShowLogo}

@@ -38,6 +38,20 @@ export const sendQuestion = createAsyncThunk(
     }
   }
 );
+// 🔹 POST isteği Question Gönder (yeni eklendi)
+export const sendFinished = createAsyncThunk(
+  "webInfo/sendFinished",
+  async ({finishedData}, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("https://admin.pvme.net/api/pvme/finished", {
+        finishedData
+      });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data || "İstatistik bilgisi gönderme hatası");
+    }
+  }
+);
 
 const webInfoSlice = createSlice({
   name: "webInfo",
@@ -46,6 +60,7 @@ const webInfoSlice = createSlice({
     loading: false,
     error: null,
     trackingCode:null,
+    finishResponse: null,
     trackingResponse: null,
     trackingLoading: false,
     trackingError: null,
@@ -91,6 +106,16 @@ const webInfoSlice = createSlice({
       .addCase(sendQuestion.rejected, (state, action) => {
         state.trackingLoading = false;
         state.trackingError = action.payload;
+      })
+      // POST (Finished Tracking)
+      .addCase(sendFinished.pending, (state) => {
+        state.finishResponse = null;
+      })
+      .addCase(sendFinished.fulfilled, (state, action) => {
+        state.finishResponse = action.payload;
+      })
+      .addCase(sendFinished.rejected, (state, action) => {
+        state.finishResponse = action.payload;
       });
   },
 });

@@ -1,4 +1,7 @@
+import { useDispatch } from "react-redux";
+import { sendFinished } from "../../../redux/webInfoSlice/webInfoSlice";
 import styles from "./FinishPage.module.scss";
+import { useEffect } from "react";
 const FinishPage = ({
   title,
   content,
@@ -7,7 +10,16 @@ const FinishPage = ({
   contentStyle,
   isShowLogo,
   logoUrl,
+  trackingCode
 }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (trackingCode) {
+      const finishedData = { trackingCode };
+      dispatch(sendFinished({ finishedData }));
+    }
+  }, [dispatch, trackingCode]); 
   return (
     <div
       className={styles.finishPage}

@@ -28,7 +28,6 @@ const handleAnswerClick = (id) => {
     dispatch(sendQuestion({ questionData: questionData }));
     setStep((prev) => prev + 1);
 };
-console.log("id",selectedAnswerId)
   return (
     <div
       className={styles.questionsPage}
