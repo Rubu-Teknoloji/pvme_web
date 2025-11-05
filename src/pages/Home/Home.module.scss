@@ -1,66 +1,64 @@
-@use '@/styles/base/func' as func;
-.homePage{
-    max-width: func.size(767.98);
-    // min-height: 100vh;
-      min-height: calc(var(--vh, 1vh) * 100);
+@use "@/styles/base/func" as func;
+.homePage {
+  max-width: func.size(767.98);
+  // min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
 
-    margin: auto;
-    color: var(--text);
-        background-size: cover;
-        background-repeat: round;
-        border-radius: func.size(20);
-        .logo{
-            padding-block: func.size(45);
-            display: flex;
-            justify-content: center;
-            img{
-                width: func.size(150);
-                height: func.size(150);
-            }
-        }
-        .content{
-            display: flex;
-            flex-direction: column;
-            gap: func.size(30);
-        .buttonVideo{
-                margin-top: func.size(35);
-                button{
-                    width: 100%;
-                    padding-block: func.size(14);
-                    font-size: func.size(20);
-                    font-weight: 500;
-                                 line-height:150%;
-                letter-spacing: func.size(-1%);
-                outline: none;
-                border: none;
-                border-radius: func.size(12);
-                color: var(--white);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: func.size(12);
-                background-image: url(../../../public/buttonBg.png);
-                }
-            }
-
-        }
-
-        .videoContent{
-            margin-top: func.size(25);
-                padding-inline: func.size(7);
-                display: flex;
-                flex-direction: column;
-                gap: func.size(40.64);
-        }
-        .finishContent{
-            margin-top: func.size(35);
-            padding-inline: func.size(32);
-            display: flex;
-            flex-direction: column;
-            gap: func.size(50);
-        }
-    @media #{func.max-width()} {
+  margin: auto;
+  color: var(--text);
+  background-size: cover;
+  background-repeat: round;
+  border-radius: func.size(20);
+  .logo {
+    padding-block: func.size(45);
+    display: flex;
+    justify-content: center;
+    img {
+      width: func.size(150);
+      height: func.size(150);
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: func.size(30);
+    .buttonVideo {
+      margin-top: func.size(35);
+      button {
         width: 100%;
-       
-     }
+        padding-block: func.size(14);
+        font-size: func.size(20);
+        font-weight: 500;
+        line-height: 150%;
+        letter-spacing: func.size(-1%);
+        outline: none;
+        border: none;
+        border-radius: func.size(12);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: func.size(12);
+        background-image: url(../../../public/buttonBg.png);
+      }
+    }
+  }
+
+  .videoContent {
+    margin-top: func.size(25);
+    padding-inline: func.size(7);
+    display: flex;
+    flex-direction: column;
+    gap: func.size(40.64);
+  }
+  .finishContent {
+    margin-top: func.size(35);
+    padding-inline: func.size(32);
+    display: flex;
+    flex-direction: column;
+    gap: func.size(50);
+  }
+  @media #{func.max-width()} {
+    width: 100%;
+  }
 }

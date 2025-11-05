@@ -1,7 +1,7 @@
 @use "@/styles/base/func" as func;
 .videoPage {
   height: 100dvh;
-    // height: calc(var(--vh, 1vh) * 100);
+  // height: calc(var(--vh, 1vh) * 100);
 
   background-position: center;
   background-repeat: no-repeat;
@@ -15,16 +15,15 @@
     padding-block: func.size(45);
     display: flex;
     justify-content: center;
-      display: inline-block;
-  transform-style: preserve-3d;
-  backface-visibility: visible; /* arka yüzü görünür yap */
-  animation: spinY 1s ease-out forwards;
-  perspective: 1000px;
+    display: inline-block;
+    transform-style: preserve-3d;
+    backface-visibility: visible; /* arka yüzü görünür yap */
+    animation: spinY 1s ease-out forwards;
+    perspective: 1000px;
     img {
       width: func.size(150);
       height: func.size(150);
-                          object-fit: contain;
-
+      object-fit: contain;
     }
   }
 }

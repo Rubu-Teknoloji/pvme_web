@@ -1,7 +1,7 @@
 @use "@/styles/base/func" as func;
 .questionsPage {
   // min-height: 100vh;
-    min-height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);
   padding-inline: func.size(32);
   background-position: center;
   background-repeat: no-repeat;
@@ -14,22 +14,21 @@
     padding-block: func.size(45);
     display: flex;
     justify-content: center;
-  display: inline-block;
-  transform-style: preserve-3d;
-  backface-visibility: visible; /* arka yüzü görünür yap */
-  animation: spinY 1s ease-out forwards;
-  perspective: 1000px;
+    display: inline-block;
+    transform-style: preserve-3d;
+    backface-visibility: visible; /* arka yüzü görünür yap */
+    animation: spinY 1s ease-out forwards;
+    perspective: 1000px;
     img {
       width: func.size(150);
       height: func.size(150);
-                          object-fit: contain;
-
+      object-fit: contain;
     }
   }
   .content {
     width: 100%;
-           width: 100%;
-        text-align: center;
+    width: 100%;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,10 +57,6 @@
         border: none;
         border-radius: func.size(12);
         cursor: pointer;
-        // &:hover {
-        //   background-color: #007bff !important;
-        //   color: #000;
-        // }
       }
     }
     p {
@@ -94,7 +89,7 @@
 }
 .fadeLeft {
   opacity: 0;
-  transform: translateX(50px); 
+  transform: translateX(50px);
   animation: fadeLeftAnim 0.6s forwards;
 }
 

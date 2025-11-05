@@ -10,7 +10,7 @@ const FinishPage = ({
   contentStyle,
   isShowLogo,
   logoUrl,
-  trackingCode
+  trackingCode,
 }) => {
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ const FinishPage = ({
       const finishedData = { trackingCode };
       dispatch(sendFinished({ finishedData }));
     }
-  }, [dispatch, trackingCode]); 
+  }, [dispatch, trackingCode]);
   return (
     <div
       className={styles.finishPage}

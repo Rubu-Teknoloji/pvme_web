@@ -51,7 +51,11 @@ const WelcomePage = ({
           <p style={contentStyle}>{content}</p>
           {isButtonVisible && (
             <div className={styles.buttonVideo}>
-              <button style={buttonStyle} onClick={onButtonClick} className={styles.fadeDown}>
+              <button
+                style={buttonStyle}
+                onClick={onButtonClick}
+                className={styles.fadeDown}
+              >
                 {buttonText}
               </button>
             </div>

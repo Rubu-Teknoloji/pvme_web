@@ -35,46 +35,38 @@ export default function Home() {
     exit: { opacity: 0, y: -20 },
   };
 
-  const handlePlayClick = () => {
-    setStep("video");
-    const now = new Date();
-    setVideoStartTime(now);
-    setTimeout(() => {
-      videoRef.current?.play();
-    }, 100);
-  };
 
   const handleNextStep = () => {
     setStep((prev) => prev + 1);
   };
 
   // Renk hex olarak geliyorsa örnek: "#FF0000"
-const hexToRgba = (hex, opacity) => {
-  if (!hex) return `rgba(0,0,0,${opacity})`;
+  const hexToRgba = (hex, opacity) => {
+    if (!hex) return `rgba(0,0,0,${opacity})`;
 
-  // Eğer rgb(...) formatındaysa, zaten kullanılabilir
-  if (hex.startsWith("rgb")) {
-    // rgb(22,62,105) → rgba(22,62,105,0.2)
-    return hex.replace("rgb", "rgba").replace(")", `,${opacity})`);
-  }
+    // Eğer rgb(...) formatındaysa, zaten kullanılabilir
+    if (hex.startsWith("rgb")) {
+      // rgb(22,62,105) → rgba(22,62,105,0.2)
+      return hex.replace("rgb", "rgba").replace(")", `,${opacity})`);
+    }
 
-  let r = 0, g = 0, b = 0;
+    let r = 0, g = 0, b = 0;
 
-  // 3 karakterli hex
-  if (hex.length === 4) {
-    r = parseInt(hex[1] + hex[1], 16);
-    g = parseInt(hex[2] + hex[2], 16);
-    b = parseInt(hex[3] + hex[3], 16);
-  }
-  // 6 karakterli hex
-  else if (hex.length === 7) {
-    r = parseInt(hex[1] + hex[2], 16);
-    g = parseInt(hex[3] + hex[4], 16);
-    b = parseInt(hex[5] + hex[6], 16);
-  }
+    // 3 karakterli hex
+    if (hex.length === 4) {
+      r = parseInt(hex[1] + hex[1], 16);
+      g = parseInt(hex[2] + hex[2], 16);
+      b = parseInt(hex[3] + hex[3], 16);
+    }
+    // 6 karakterli hex
+    else if (hex.length === 7) {
+      r = parseInt(hex[1] + hex[2], 16);
+      g = parseInt(hex[3] + hex[4], 16);
+      b = parseInt(hex[5] + hex[6], 16);
+    }
 
-  return `rgba(${r},${g},${b},${opacity})`;
-};
+    return `rgba(${r},${g},${b},${opacity})`;
+  };
 
 
   if (loading)
@@ -249,7 +241,7 @@ const hexToRgba = (hex, opacity) => {
                           }}
                           questionAnswers={mData.questionAnswers}
                           questionAnswerStyle={{
-                            color:mData.questionAnswerColor,
+                            color: mData.questionAnswerColor,
                             backgroundColor: mData.questionAnswerBgColor,
                             fontSize: mData.questionAnswerFontSize,
                             fontWeight: mData.questionAnswerFontWeight,

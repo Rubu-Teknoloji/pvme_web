@@ -44,7 +44,11 @@ const ContentPage = ({
           <p style={contentStyle}>{content}</p>
           {isButtonVisible && (
             <div className={styles.button}>
-              <button style={buttonStyle} onClick={onButtonClick} className={styles.fadeDown}>
+              <button
+                style={buttonStyle}
+                onClick={onButtonClick}
+                className={styles.fadeDown}
+              >
                 {buttonText}
               </button>
             </div>

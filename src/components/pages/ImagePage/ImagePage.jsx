@@ -19,12 +19,11 @@ const ImagePage = ({
   useEffect(() => {
     let timer;
 
-
     if (!isButtonVisible) {
-      const duration = pageDuration > 0 ? pageDuration : 5; 
+      const duration = pageDuration > 0 ? pageDuration : 5;
       timer = setTimeout(() => {
-        onButtonClick(); 
-      }, duration * 1000); 
+        onButtonClick();
+      }, duration * 1000);
     }
 
     return () => {
@@ -62,9 +61,13 @@ const ImagePage = ({
           </button>
         </div>
       )} */}
-            {isButtonVisible && (
-        <div className={`${styles.Applebutton} ${styles.fadeDown}`} style={buttonStyle} onClick={onButtonClick}>
-          <div className={`${styles.nextBox}`} >
+      {isButtonVisible && (
+        <div
+          className={`${styles.Applebutton} ${styles.fadeDown}`}
+          style={buttonStyle}
+          onClick={onButtonClick}
+        >
+          <div className={`${styles.nextBox}`}>
             <GrLinkNext />
           </div>
         </div>
