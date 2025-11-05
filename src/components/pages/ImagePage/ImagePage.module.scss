@@ -58,6 +58,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color:#000;
   img {
     width: 100%;
     // height: 100%;
@@ -129,24 +130,59 @@
   top: 10px;
   right: 10px;
 }
+// .fadeDown {
+//   opacity: 0;
+//   transform: translateX(-50px);
+//   animation: fadeDownAnim 1s forwards;
+//   animation-delay: 0.3s;
+// }
+
+// @keyframes fadeDownAnim {
+//   to {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
+// @keyframes spinY {
+//   from {
+//     transform: rotateY(0deg);
+//   }
+//   to {
+//     transform: rotateY(360deg);
+//   }
+// }
+
 .fadeDown {
   opacity: 0;
   transform: translateX(-50px);
-  animation: fadeDownAnim 1s forwards;
-  animation-delay: 0.3s;
+  animation:
+    fadeDownAnim 1s forwards ease-out,   /* 🔹 ilk giriş animasyonu */
+    moveSide 3s ease-in-out 3s infinite; /* 🔹 3sn sonra başlayıp sürekli tekrar eden hareket */
 }
 
+/* İlk görünme animasyonu (bir kere çalışır) */
 @keyframes fadeDownAnim {
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
-@keyframes spinY {
-  from {
-    transform: rotateY(0deg);
+
+/* Sonradan sürekli yapılacak soldan-sağa salınım */
+@keyframes moveSide {
+  0% {
+    transform: translateX(0);
   }
-  to {
-    transform: rotateY(360deg);
+  25% {
+    transform: translateX(-15px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }

@@ -29,11 +29,39 @@ export default function Home() {
     }
   }, [dispatch, incomingUrl]);
 
-  const fadeVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 },
-  };
+  // const fadeVariants = {
+  //   hidden: { opacity: 0, y: 20 },
+  //   visible: { opacity: 1, y: 0 },
+  //   exit: { opacity: 0, y: -20 },
+  // };
+
+const fadeVariants = {
+  hidden: {
+    y: "100%", // tamamen ekranın dışında, en altta
+    opacity: 1, // arka sayfa görünür kalacak
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  visible: {
+    y: "0%",
+    opacity: 1,
+    transition: {
+      duration: 1.3,
+      ease: [0.22, 1, 0.36, 1], // smooth cubic bezier
+    },
+  },
+  exit: {
+    y: "-15%", // hafif yukarı kayarak gider
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: [0.55, 0.06, 0.68, 0.19],
+    },
+  },
+};
 
 
   const handleNextStep = () => {
@@ -86,7 +114,7 @@ export default function Home() {
   return (
     <section className={styles.homePage}>
       {data?.template?.pages?.length > 0 && (
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           {data.template.pages
             // .sort((a, b) => a.pageOrder - b.pageOrder)
             .filter((mData) => mData.pageNumber === step)
@@ -99,6 +127,11 @@ export default function Home() {
                 exit="exit"
                 variants={fadeVariants}
                 transition={{ duration: 0.5 }}
+                  style={{
+    backgroundColor: "transparent", // beyazlığı engeller
+    position: "absolute",
+    top: 0, left: 0, right: 0, bottom: 0,
+  }}
               >
                 {(() => {
                   switch (mData.pageType) {
